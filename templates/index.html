@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>Otomotiv Satış Tahmini</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="main-content">
+      <div class="header">Otomotiv Satış Tahmini</div>
+      <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="OTV" placeholder="ÖTV" required="required" />
+        <input
+          type="text"
+          name="Faiz Orani"
+          placeholder="Faiz Orani"
+          required="required"
+        />
+        <input
+          type="text"
+          name="EURO/TRY Paritesi"
+          placeholder="EURO/TRY Paritesi"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Kredi Stok"
+          placeholder="Kredi Stok"
+          required="required"
+        />
+        <input
+          type="date"
+          name="tarih"
+          placeholder="tarih"
+          required="required"
+          value="2023-01-01"
+        />
+        <div class="textContent">{{ result }}</div>
+        <button class="span-two" type="input">Predict</button>
+      </form>
+    </div>
+  </body>
+</html>
